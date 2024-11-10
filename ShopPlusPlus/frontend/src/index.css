@@ -64,3 +64,19 @@ main {
   border-bottom: 0.2rem solid #f08000;
   color: #f08000;
 }
+
+.mock {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.lock:hover {
+  background-color: #45a049;
+}

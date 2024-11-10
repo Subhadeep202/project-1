@@ -13,6 +13,9 @@ import ShippingAddressScreen from './Screen/ShippingAddressScreen';
 import SignupScreen from './Screen/SignupScreen';
 import PaymentMethodScreen from './Screen/PaymentMethodScreen';
 import PlaceOrderScreen from './Screen/PlaceOrderScreen';
+import OrderScreen from './Screen/OrderScreen';
+import OrderHistoryScreen from './Screen/OrderHistoryScreen';
+import ProfileScreen from './Screen/ProfileScreen';
 
 const App = () => {
   return (
@@ -27,7 +30,13 @@ const App = () => {
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/Signin" element={<SigninScreen />} />
               <Route path="/Signup" element={<SignupScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/order/:id" element={<OrderScreen />}></Route>
+              <Route
+                path="/orderhistory"
+                element={<OrderHistoryScreen />}
+              ></Route>
               <Route path="/Shipping" element={<ShippingAddressScreen />} />
               <Route path="/payment" element={<PaymentMethodScreen />} />
               <Route path="/" element={<Featured />} />

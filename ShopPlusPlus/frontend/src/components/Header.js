@@ -16,6 +16,7 @@ const Header = () => {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
+    window.location.href = '/signin';
   };
 
   return (
@@ -31,61 +32,65 @@ const Header = () => {
             <Navbar.Brand>ShopPlusPlus</Navbar.Brand>
           </Nav.Link>
 
-          <Nav className="ms-auto">
-            <Nav.Link
-              as={NavLink}
-              to="/"
-              end
-              className={({ isActive }) => (isActive ? 'active-link' : '')}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/product"
-              end
-              className={({ isActive }) => (isActive ? 'active-link' : '')}
-            >
-              Product
-            </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/cart"
-              end
-              className={({ isActive }) => (isActive ? 'active-link' : '')}
-            >
-              Cart
-              {cart.cartItems.length > 0 && (
-                <Badge pill bg="danger">
-                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                </Badge>
-              )}
-            </Nav.Link>
-
-            {userInfo ? (
-              <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                <NavDropdown.Item as={NavLink} to="/profile" end>
-                  User Profile
-                </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/orderhistory" end>
-                  Order History
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as="button" onClick={signoutHandler}>
-                  Sign Out
-                </NavDropdown.Item>
-              </NavDropdown>
-            ) : (
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto w-100 justify-content-end">
               <Nav.Link
                 as={NavLink}
-                to="/signin"
+                to="/"
                 end
                 className={({ isActive }) => (isActive ? 'active-link' : '')}
               >
-                Sign In
+                Home
               </Nav.Link>
-            )}
-          </Nav>
+
+              <Nav.Link
+                as={NavLink}
+                to="/product"
+                end
+                className={({ isActive }) => (isActive ? 'active-link' : '')}
+              >
+                Product
+              </Nav.Link>
+              <Nav.Link
+                as={NavLink}
+                to="/cart"
+                end
+                className={({ isActive }) => (isActive ? 'active-link' : '')}
+              >
+                Cart
+                {cart.cartItems.length > 0 && (
+                  <Badge pill bg="danger">
+                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                  </Badge>
+                )}
+              </Nav.Link>
+
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                  <NavDropdown.Item as={NavLink} to="/profile" end>
+                    User Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/orderhistory" end>
+                    Order History
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item as="button" onClick={signoutHandler}>
+                    Sign Out
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Link
+                  as={NavLink}
+                  to="/signin"
+                  end
+                  className={({ isActive }) => (isActive ? 'active-link' : '')}
+                >
+                  Sign In
+                </Nav.Link>
+              )}
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </header>
