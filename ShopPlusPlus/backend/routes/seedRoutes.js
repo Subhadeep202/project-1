@@ -7,7 +7,6 @@ const seedRouter = express.Router();
 
 seedRouter.get('/', async (req, res) => {
   try {
-    // Use deleteMany instead of remove (since remove is deprecated)
     await Product.deleteMany({});
     const createdProducts = await Product.insertMany(data.products);
 

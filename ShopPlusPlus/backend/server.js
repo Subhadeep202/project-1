@@ -20,6 +20,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/api/keys/paypal', (req, res) => {
@@ -27,15 +28,17 @@ app.get('/api/keys/paypal', (req, res) => {
 });
 
 app.use('/api/seed', seedRouter);
+
 app.use('/api/products', productRouter);
+
 app.use('/api/users', userRouter);
+
 app.use('/api/orders', orderRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
 
-// Server setup
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

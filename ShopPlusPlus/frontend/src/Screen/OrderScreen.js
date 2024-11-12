@@ -260,11 +260,11 @@ export default function OrderScreen() {
                       <LoadingBox />
                     ) : (
                       <div>
-                        {/* <PayPalButtons
+                        <PayPalButtons
                           createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}
-                        ></PayPalButtons> */}
+                        ></PayPalButtons>
                         <button className="mock" onClick={mockPayment}>
                           Mock Pay
                         </button>

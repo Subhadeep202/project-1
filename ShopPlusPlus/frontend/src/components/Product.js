@@ -5,6 +5,7 @@ import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
+import { toast } from 'react-toastify'; // Correct toast import
 
 function Product(props) {
   const { product } = props;
@@ -12,9 +13,11 @@ function Product(props) {
   const {
     cart: { cartItems },
   } = state;
+
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
+
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
@@ -24,7 +27,14 @@ function Product(props) {
       type: 'CART_ADD_ITEM',
       payload: { ...item, quantity },
     });
+
+    // Correct use of toast
+    toast.success(`${product.name} added to cart!`, {
+      position: 'bottom-center', // Corrected to lowercase string
+      autoClose: 3000, // 3 seconds auto close
+    });
   };
+
   return (
     <Card>
       <Link to={`/product/${product.slug}`}>

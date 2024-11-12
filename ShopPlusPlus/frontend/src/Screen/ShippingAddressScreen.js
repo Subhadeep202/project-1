@@ -51,6 +51,7 @@ export default function ShippingAddressScreen() {
     );
     navigate('/payment');
   };
+
   return (
     <div>
       <Helmet>

@@ -44,6 +44,7 @@ export default function SignupScreen() {
       navigate(redirect);
     }
   }, [navigate, redirect, userInfo]);
+
   return (
     <Container className="small-container">
       <Helmet>

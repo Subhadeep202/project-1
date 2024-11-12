@@ -5,6 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Product from './Product';
 import LoadingBox from './LoadingBox';
 import MessageBox from './MessageBox';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Banner from './Banner';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,9 +41,18 @@ const Featured = () => {
     };
     fetchData();
   }, []);
+
+  const addToCartHandler = (product) => {
+    toast.success(`${product.name} added to cart!`, {
+      position: toast.POSITION.BOTTOM_CENTER,
+      autoClose: 3000,
+    });
+  };
+
   return (
     <main>
-      <h1>Featured Products</h1>
+      <Banner />
+      <h1 className="featured">Featured Products</h1>
       <div className="products">
         {loading ? (
           <LoadingBox />
@@ -50,7 +62,10 @@ const Featured = () => {
           <Row>
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                <Product product={product}></Product>
+                <Product
+                  product={product}
+                  addToCartHandler={addToCartHandler}
+                />
               </Col>
             ))}
           </Row>

@@ -18,14 +18,16 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
 export default function ProfileScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
   const [name, setName] = useState(userInfo.name);
   const [email, setEmail] = useState(userInfo.email);
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
+  const [setConfirmPassword] = useState(''); //confirmPassword
+  const [dispatch] = useReducer(reducer, {
+    //loadingUpdate
     loadingUpdate: false,
   });
   const submitHandler = async (e) => {
@@ -55,6 +57,7 @@ export default function ProfileScreen() {
       toast.error(getError(err));
     }
   };
+
   return (
     <div className="container small-container">
       <Helmet>

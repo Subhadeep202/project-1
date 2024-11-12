@@ -7,6 +7,7 @@ import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/esm/Button';
 import { Store } from '../Store';
 import { getError } from '../utils';
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -19,6 +20,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
 export default function OrderHistoryScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
@@ -44,6 +46,7 @@ export default function OrderHistoryScreen() {
     };
     fetchData();
   }, [userInfo]);
+
   return (
     <div>
       <Helmet>
