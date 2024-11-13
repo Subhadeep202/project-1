@@ -1,0 +1,14 @@
+{
+  "name": "shopplusplus",
+  "version": "1.0.0",
+  "description": "1. Introduction\r 2. Install Tools\r 3. Create React App",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: np test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
