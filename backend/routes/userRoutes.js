@@ -69,4 +69,16 @@ userRouter.put(
   })
 );
 
+userRouter.get(
+  '/',
+  expressAsyncHandler(async (req, res) => {
+    try {
+      const users = await User.find({});
+      res.send(users);
+    } catch (error) {
+      res.status(500).send({ message: 'Error fetching users' });
+    }
+  })
+);
+
 export default userRouter;

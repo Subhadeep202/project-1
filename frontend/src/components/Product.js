@@ -5,7 +5,7 @@ import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
-import { toast } from 'react-toastify'; // Correct toast import
+import { toast } from 'react-toastify';
 
 function Product(props) {
   const { product } = props;
@@ -28,10 +28,9 @@ function Product(props) {
       payload: { ...item, quantity },
     });
 
-    // Correct use of toast
     toast.success(`${product.name} added to cart!`, {
-      position: 'bottom-center', // Corrected to lowercase string
-      autoClose: 3000, // 3 seconds auto close
+      position: 'bottom-center',
+      autoClose: 3000,
     });
   };
 
