@@ -69,19 +69,6 @@ const data = {
       numReviews: 10,
       description: 'high quality product',
     },
-    {
-      // _id: '5',
-      name: 'Adidas Fit Shirt',
-      slug: 'adidas-fit-Shirt',
-      category: 'Pants',
-      image: '/images/p1.jpg',
-      price: 85,
-      countInStock: 5,
-      brand: 'Puma',
-      rating: 4.5,
-      numReviews: 10,
-      description: 'high quality product',
-    },
   ],
 };
 export default data;

@@ -16,7 +16,9 @@ seedRouter.get('/', async (req, res) => {
     res.send({ createdProducts, createdUsers });
   } catch (error) {
     console.error('Error seeding data:', error);
-    res.status(500).send({ message: 'Error seeding data' });
+    res
+      .status(500)
+      .send({ message: 'Error seeding data', error: error.message });
   }
 });
 
