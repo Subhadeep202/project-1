@@ -140,13 +140,11 @@
 
 ## 5. Deployment
 
-### **Backend Setup**
-
 1. **Deployed in the server:**:
 
-   `bash 
-"https://shopplusplus-yndz.onrender.com"
-`
+   ```
+   https://shopplusplus-yndz.onrender.com
+   ```
 
 ---
 
