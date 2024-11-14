@@ -146,6 +146,8 @@
    https://shopplusplus-yndz.onrender.com
    ```
 
+   Login to AdminDashboard Gmail-admin@gmail.com password-123456
+
 ---
 
 ## 6. Usage
